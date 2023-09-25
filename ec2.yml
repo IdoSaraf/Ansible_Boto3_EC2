@@ -1,0 +1,17 @@
+- name: ec2
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: launching ec2
+      ec2:
+        instance_type: t2.micro
+        key_name: ido_key
+        image: ami-05cc83e573412838f
+        region: us-west-2
+        group: default
+        count: 1
+        vpc_subnet_id: vpc-07d088228190a264d
+        wait: yes
+        assign_public_ip: yes
+
+
